@@ -1,4 +1,5 @@
-/**	Iterator Pattern is a pattern for design our own iterators
+/**	The Iterator pattern is a pattern that allows you to effectively loop over a collection of objects.
+ * 	Iterator Pattern allows us to design our own iterators
  *  mainly have hasNext & next method, one for checking does it more data
  * 	other one for getting next data.
  * 	With Iterator Pattern, we can have our own rules to set and get Iterator Data
