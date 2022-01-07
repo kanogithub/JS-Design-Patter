@@ -3,37 +3,45 @@
  * In order for increasing object/programe maintainability and reusability
  * Simulate OOP pattern as module and instance, in ES6 can also be declarated
  * by using class.
+ * Factory Pattern Centralize the position of creations. Make structure clear.
  */
 
 // Declaration
 {
-	const Developer = function (name) {
-		this.name = name;
-		this.type = 'Developer';
-	};
-
-	const Tester = function (name) {
-		this.name = name;
-		this.type = 'Tester';
-	};
-
 	var Factory = function () {
 		this.employees = [];
+
+		const Developer = function (name) {
+			this.name = name;
+			this.type = 'Developer';
+		};
+
+		const Tester = function (name) {
+			this.name = name;
+			this.type = 'Tester';
+		};
+
+        const say = function() {
+            console.log(`Hi, I am ${this.name} and I am a ${this.type}.`)
+        }
 
 		return {
 			create: (name, type) => {
 				switch (type) {
 					case 1:
 						this.employees.push(new Developer(name));
-						break;
+                        break;
 					case 2:
 						this.employees.push(new Tester(name));
-						break;
+                        break;
 					default:
 						return console.log('Employee type error');
 				}
+
+                this.employees[this.employees.length - 1].say = say;
 			},
 			getEmployees: () => this.employees,
+			say: emp => `Hi, I am ${emp.name} and I am a ${emp.type}.`
 		};
 	};
 }
@@ -49,4 +57,6 @@ myFactory.create('Jason', 2);
 myFactory.create('Willy', 2);
 myFactory.create('Jesse', 1);
 
-console.log(myFactory.getEmployees());
+const employees = myFactory.getEmployees()
+console.log(employees)
+employees[2].say()
