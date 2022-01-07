@@ -21,10 +21,6 @@
 			this.type = 'Tester';
 		};
 
-        const say = function() {
-            console.log(`Hi, I am ${this.name} and I am a ${this.type}.`)
-        }
-
 		return {
 			create: (name, type) => {
 				switch (type) {
@@ -38,7 +34,11 @@
 						return console.log('Employee type error');
 				}
 
-                this.employees[this.employees.length - 1].say = say;
+                Object.assign(this.employees[this.employees.length - 1], {
+					say: function() {
+						console.log(`Hi, I am ${this.name} and I am a ${this.type}.`)
+					}
+				})
 			},
 			getEmployees: () => this.employees,
 			say: emp => `Hi, I am ${emp.name} and I am a ${emp.type}.`
