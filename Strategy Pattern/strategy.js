@@ -1,4 +1,6 @@
-/** Strategy Pattern is to set similar type of class have the same name of methods
+/** The Strategy pattern is a behavioral design pattern that enables you to define 
+ * 	a group (or family) of closely-related algorithms (known as strategies). 
+ * 	The strategy pattern allows you to swap strategies in and out for each other as needed at runtime.
  * 	The example below, different company has the same method > calculate
  * 	Thurs when shipping object refer to other company, it can easier to get calculating
  */
