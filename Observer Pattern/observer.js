@@ -4,7 +4,7 @@
 
 // Useful to create event handlers
 
-class Subject {
+class Observer {
     constructor() {
         this.observers = []
     }
@@ -26,7 +26,8 @@ class Subject {
     }
 }
 
-const observer = new Subject()
+// using
+const observer = new Observer()
 
 const fn1 = function(){
     console.log('Observer 1 Fires')
